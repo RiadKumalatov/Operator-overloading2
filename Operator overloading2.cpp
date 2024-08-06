@@ -7,7 +7,7 @@ private:
     int numerator_;
     int denominator_;
 
-    // Приватный метод для упрощения дроби (если нужно)
+    // ГЏГ°ГЁГўГ ГІГ­Г»Г© Г¬ГҐГІГ®Г¤ Г¤Г«Гї ГіГЇГ°Г®Г№ГҐГ­ГЁГї Г¤Г°Г®ГЎГЁ (ГҐГ±Г«ГЁ Г­ГіГ¦Г­Г®)
     void reduce()
     {
         int gcd = compute_gcd(numerator_, denominator_);
@@ -15,7 +15,7 @@ private:
         denominator_ /= gcd;
     }
 
-    // Функция для вычисления НОД (наибольшего общего делителя)
+    // Г”ГіГ­ГЄГ¶ГЁГї Г¤Г«Гї ГўГ»Г·ГЁГ±Г«ГҐГ­ГЁГї ГЌГЋГ„ (Г­Г ГЁГЎГ®Г«ГјГёГҐГЈГ® Г®ГЎГ№ГҐГЈГ® Г¤ГҐГ«ГЁГІГҐГ«Гї)
     int compute_gcd(int a, int b) const
     {
         while (b != 0)
@@ -38,7 +38,6 @@ public:
         reduce();
     }
 
-    // Перегрузка операторов сравнения
     bool operator==(const Fraction& other) const
     {
         return numerator_ * other.denominator_ == other.numerator_ * denominator_;
@@ -69,7 +68,6 @@ public:
         return !(*this < other);
     }
 
-    // Перегрузка операторов арифметических операций
     Fraction operator+(const Fraction& other) const
     {
         int num = numerator_ * other.denominator_ + other.numerator_ * denominator_;
@@ -97,13 +95,11 @@ public:
         return Fraction(numerator_ * other.denominator_, denominator_ * other.numerator_);
     }
 
-    // Унарный минус
     Fraction operator-() const
     {
         return Fraction(-numerator_, denominator_);
     }
 
-    // Префиксный инкремент
     Fraction& operator++()
     {
         numerator_ += denominator_;
@@ -111,7 +107,6 @@ public:
         return *this;
     }
 
-    // Постфиксный инкремент
     Fraction operator++(int)
     {
         Fraction temp(*this);
@@ -120,7 +115,6 @@ public:
         return temp;
     }
 
-    // Префиксный декремент
     Fraction& operator--()
     {
         numerator_ -= denominator_;
@@ -128,7 +122,6 @@ public:
         return *this;
     }
 
-    // Постфиксный декремент
     Fraction operator--(int)
     {
         Fraction temp(*this);
@@ -137,7 +130,6 @@ public:
         return temp;
     }
 
-    // Функция для вывода дроби (опционально)
     friend std::ostream& operator<<(std::ostream& os, const Fraction& frac)
     {
         os << frac.numerator_ << '/' << frac.denominator_;
@@ -150,14 +142,14 @@ int main()
     setlocale(LC_ALL, "Russian");
     int num1, denom1, num2, denom2;
 
-    std::cout << "Введите числитель дроби 1: ";
+    std::cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г·ГЁГ±Г«ГЁГІГҐГ«Гј Г¤Г°Г®ГЎГЁ 1: ";
     std::cin >> num1;
-    std::cout << "Введите знаменатель дроби 1: ";
+    std::cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г§Г­Г Г¬ГҐГ­Г ГІГҐГ«Гј Г¤Г°Г®ГЎГЁ 1: ";
     std::cin >> denom1;
 
-    std::cout << "Введите числитель дроби 2: ";
+    std::cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г·ГЁГ±Г«ГЁГІГҐГ«Гј Г¤Г°Г®ГЎГЁ 2: ";
     std::cin >> num2;
-    std::cout << "Введите знаменатель дроби 2: ";
+    std::cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г§Г­Г Г¬ГҐГ­Г ГІГҐГ«Гј Г¤Г°Г®ГЎГЁ 2: ";
     std::cin >> denom2;
 
     Fraction f1(num1, denom1);
@@ -169,16 +161,16 @@ int main()
     std::cout << f1 << " / " << f2 << " = " << (f1 / f2) << '\n';
 
     std::cout << "++" << f1 << " * " << f2 << " = " << (++f1 * f2) << '\n';
-    std::cout << "Значение дроби 1 = " << f1 << '\n';
+    std::cout << "Г‡Г­Г Г·ГҐГ­ГЁГҐ Г¤Г°Г®ГЎГЁ 1 = " << f1 << '\n';
 
     std::cout << f1 << "-- * " << f2 << " = " << (f1-- * f2) << '\n';
-    std::cout << "Значение дроби 1 = " << f1 << '\n';
+    std::cout << "Г‡Г­Г Г·ГҐГ­ГЁГҐ Г¤Г°Г®ГЎГЁ 1 = " << f1 << '\n';
 
     std::cout << "--" << f1 << " * " << f2 << " = " << (--f1 * f2) << '\n';
-    std::cout << "Значение дроби 1 = " << f1 << '\n';
+    std::cout << "Г‡Г­Г Г·ГҐГ­ГЁГҐ Г¤Г°Г®ГЎГЁ 1 = " << f1 << '\n';
 
     std::cout << f1 << "++ * " << f2 << " = " << (f1++ * f2) << '\n';
-    std::cout << "Значение дроби 1 = " << f1 << '\n';
+    std::cout << "Г‡Г­Г Г·ГҐГ­ГЁГҐ Г¤Г°Г®ГЎГЁ 1 = " << f1 << '\n';
 
     return 0;
 }
